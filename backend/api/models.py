@@ -15,9 +15,6 @@ class Document(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255, verbose_name="Tên tài liệu")
     file = models.FileField(upload_to='documents/', verbose_name="File đính kèm")
-    language = models.CharField(
-        max_length=10, default='en', verbose_name="Ngôn ngữ chính"
-    )
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
