@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -98,9 +99,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'vi'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 USE_I18N = True
 
@@ -110,6 +111,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
@@ -118,4 +123,37 @@ MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
+}
+
+# --- JAZZMIN CONFIGURATION ---
+JAZZMIN_SETTINGS = {
+    # Tiêu đề trang admin
+    "site_title": "Tech Doc QA Admin",
+    "site_header": "Tech Doc QA",
+    "site_brand": "Tech Doc QA System",
+
+    # Logo (nếu có file ảnh trong static)
+    "site_logo": None,
+    "welcome_sign": "Chào mừng bạn đến với trang quản trị hệ thống QA Agent",
+
+    # Copyright ở chân trang
+    "copyright": "Lê Đức Mạnh - Monorepo Project",
+
+    # Menu điều hướng bên trái (Models)
+    "usermenu_links": [
+        {"model": "auth.user"},
+    ],
+
+    # Tùy chỉnh icon cho các app/model (dùng Font Awesome)
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "api.document": "fas fa-file-alt",
+        "api.chatsession": "fas fa-comments",
+        "api.chatmessage": "fas fa-comment-dots",
+    },
+
+    # Kiểu dáng giao diện bổ sung
+    "related_modal_active": True,
 }
