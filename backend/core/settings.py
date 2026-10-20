@@ -157,3 +157,4 @@ JAZZMIN_SETTINGS = {
     # Kiểu dáng giao diện bổ sung
     "related_modal_active": True,
 }
+# Test
